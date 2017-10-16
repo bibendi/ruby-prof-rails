@@ -47,7 +47,7 @@ module RubyProf
 
       def is_valid_route?
         begin
-          route = ::Rails.application.routes.recognize_path(@env['REQUEST_PATH'])
+          route = ::Rails.application.routes.recognize_url(@env['REQUEST_URI'])
           route.present? && valid_format?(route[:format])
         rescue ActionController::RoutingError
           false
